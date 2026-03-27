@@ -115,6 +115,7 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--tx);font-famil
 
 /* Home */
 .home-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,0.07) 0%,transparent 70%);pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);}
+@keyframes hpulse{0%,100%{transform:scale(1);opacity:0.9;}50%{transform:scale(1.12);opacity:1;}}
 .home-title{font-family:'Rajdhani',sans-serif;font-size:clamp(1.7rem,7vw,2.8rem);font-weight:700;letter-spacing:3px;color:#fff;line-height:1.2;margin-bottom:6px;position:relative;}
 .home-title em{color:var(--ng);font-style:normal;text-shadow:0 0 16px #39ff1488;}
 .home-sub{font-size:0.85rem;letter-spacing:2px;color:var(--mt);margin-bottom:32px;position:relative;}
@@ -156,10 +157,10 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--tx);font-famil
 .gcard:active{transform:scale(0.98);}
 .gcard-thumb{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
 .sc-thumb{background:linear-gradient(135deg,#030a04,#071209);border-bottom:1px solid rgba(57,255,20,0.12);}
-.fb-thumb{background:linear-gradient(135deg,#0a0a00,#1a1800);border-bottom:1px solid rgba(255,255,0,0.1);}
+
 .gcard-body{padding:14px 16px 16px;}
 .gcard-name{font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:2px;margin-bottom:1px;}
-.sc-name{color:var(--ng);} .fb-name{color:#ffff00;}
+.sc-name{color:var(--ng);}
 .gcard-sub{font-size:0.68rem;letter-spacing:2px;opacity:0.4;margin-bottom:7px;}
 .gcard-desc{font-size:0.82rem;color:var(--mt);line-height:1.6;margin-bottom:12px;}
 .gtags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;}
@@ -169,7 +170,7 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--tx);font-famil
 .tb{background:rgba(0,207,255,0.08);color:var(--cy);border:1px solid rgba(0,207,255,0.18);}
 .gplay{width:100%;padding:11px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:2px;border:none;border-radius:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .gplay:active{opacity:0.8;}
-.sc-play{background:var(--ng);color:#000;} .fb-play{background:#ffff00;color:#000;}
+.sc-play{background:var(--ng);color:#000;}
 
 /* Game overlay */
 #gOverlay{position:fixed;inset:0;background:#000;z-index:600;display:none;flex-direction:column;}
@@ -179,8 +180,8 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--tx);font-famil
 #gClose{background:transparent;color:#aaa;border:1px solid #333;padding:5px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;letter-spacing:1px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
 #gClose:active{background:#1a1a1a;}
 #gFrame{flex:1;position:relative;overflow:hidden;}
-#sc-wrap,#fb-wrap{position:absolute;inset:0;display:none;overflow:hidden;}
-#sc-wrap.vis,#fb-wrap.vis{display:block;}
+#sc-wrap{position:absolute;inset:0;display:none;overflow:hidden;}
+#sc-wrap.vis{display:block;}
 
 /* Onboarding overlay */
 #onboard{
@@ -249,91 +250,91 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--tx);font-famil
 #sr{position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
 /* ── COMING SOON STYLES ── */
-.coming-soon-page{{
+.coming-soon-page{
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   min-height:60vh;text-align:center;padding:40px 20px;
-}}
-.cs-badge{{
+}
+.cs-badge{
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 18px;border-radius:20px;
   background:rgba(255,106,0,0.12);
   border:1px solid rgba(255,106,0,0.35);
   color:var(--or);font-size:0.78rem;font-weight:700;
   letter-spacing:3px;margin-bottom:20px;
-}}
-.cs-icon{{font-size:3.5rem;margin-bottom:16px;}}
-.cs-title{{
+}
+.cs-icon{font-size:3.5rem;margin-bottom:16px;}
+.cs-title{
   font-family:'Rajdhani',sans-serif;
   font-size:clamp(1.6rem,6vw,2.4rem);
   font-weight:700;letter-spacing:3px;
   color:#fff;margin-bottom:10px;
-}}
-.cs-desc{{
+}
+.cs-desc{
   font-size:0.9rem;color:var(--mt);
   line-height:1.8;max-width:300px;
   letter-spacing:0.5px;
-}}
-.cs-tools-grid{{
+}
+.cs-tools-grid{
   display:grid;gap:12px;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   width:100%;max-width:400px;margin-top:28px;
-}}
-.cs-tool-item{{
+}
+.cs-tool-item{
   background:var(--card);border:1px solid var(--brd);
   border-radius:12px;padding:18px 14px;
   text-align:center;opacity:0.55;
-}}
-.cs-tool-item-icon{{font-size:1.8rem;margin-bottom:8px;}}
-.cs-tool-item-name{{
+}
+.cs-tool-item-icon{font-size:1.8rem;margin-bottom:8px;}
+.cs-tool-item-name{
   font-family:'Rajdhani',sans-serif;
   font-size:0.85rem;font-weight:700;
   letter-spacing:2px;color:var(--mt);
-}}
-.cs-tool-item-tag{{
+}
+.cs-tool-item-tag{
   font-size:0.62rem;letter-spacing:2px;
   color:var(--or);margin-top:4px;
   font-weight:700;
-}}
+}
 /* Coming soon game card */
-.gcard-cs{{
+.gcard-cs{
   background:var(--card);border-radius:16px;
   border:1.5px dashed var(--brd);
   overflow:hidden;opacity:0.7;
   pointer-events:none;
   aria-hidden:true;
-}}
-.gcard-cs-thumb{{
+}
+.gcard-cs-thumb{
   height:110px;display:flex;
   align-items:center;justify-content:center;
   font-size:2.2rem;
   background:linear-gradient(135deg,#0d0d16,#0a0a14);
   border-bottom:1px solid var(--brd);
   position:relative;
-}}
-.cs-overlay-tag{{
+}
+.cs-overlay-tag{
   position:absolute;top:10px;right:10px;
   background:rgba(255,106,0,0.18);
   border:1px solid rgba(255,106,0,0.4);
   color:var(--or);font-size:0.65rem;font-weight:700;
   letter-spacing:2px;padding:3px 9px;border-radius:20px;
-}}
-.gcard-cs-body{{padding:14px 16px 16px;}}
-.gcard-cs-name{{
+}
+.gcard-cs-body{padding:14px 16px 16px;}
+.gcard-cs-name{
   font-family:'Rajdhani',sans-serif;
   font-size:1.1rem;font-weight:700;
   letter-spacing:2px;color:var(--mt);margin-bottom:1px;
-}}
-.gcard-cs-sub{{font-size:0.68rem;letter-spacing:2px;opacity:0.4;margin-bottom:7px;color:var(--mt);}}
-.gcard-cs-desc{{font-size:0.82rem;color:var(--mt);line-height:1.6;margin-bottom:12px;opacity:0.7;}}
-.gplay-cs{{
+}
+.gcard-cs-sub{font-size:0.68rem;letter-spacing:2px;opacity:0.4;margin-bottom:7px;color:var(--mt);}
+.gcard-cs-desc{font-size:0.82rem;color:var(--mt);line-height:1.6;margin-bottom:12px;opacity:0.7;}
+.gplay-cs{
   width:100%;padding:11px;
   font-family:'Rajdhani',sans-serif;font-size:0.9rem;
   font-weight:700;letter-spacing:2px;
   border:1.5px solid var(--brd);
   border-radius:10px;background:transparent;
   color:var(--mt);cursor:default;
-}}
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Rajdhani:wght@300;500;700&display=swap');
 
@@ -380,7 +381,7 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%}
 #sb.show{opacity:1}
 
 /* COLLECT MSG */
-@keyframes cflash{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-60%) scale(1.15)}}
+@keyframes cflash{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-60%) scale(1.15)}
 #cm{
   position:absolute;top:35%;left:50%;
   transform:translate(-50%,-50%);
@@ -584,7 +585,7 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%}
 #rt{font-family:'Creepster',cursive;font-size:clamp(2.2rem,10vw,4.2rem)}
 
 /* HOLE RANGE RING */
-@keyframes ring-pulse{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes ring-pulse{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}
 #hole-ring{
   position:absolute;
   border:3px solid rgba(140,140,255,0.7);
@@ -595,9 +596,9 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%}
 }
 
 /* danger */
-@keyframes dp{0%,100%{box-shadow:none}50%{box-shadow:inset 0 0 60px rgba(255,40,0,0.38)}}
+@keyframes dp{0%,100%{box-shadow:none}50%{box-shadow:inset 0 0 60px rgba(255,40,0,0.38)}
 body.danger{animation:dp 0.35s infinite}
-@keyframes tiger-alert{0%,100%{box-shadow:none}50%{box-shadow:inset 0 0 90px rgba(255,0,0,0.6)}}
+@keyframes tiger-alert{0%,100%{box-shadow:none}50%{box-shadow:inset 0 0 90px rgba(255,0,0,0.6)}
 body.tiger-close{animation:tiger-alert 0.2s infinite}
 
 /* ── DEVELOPER SPLASH SCREEN ── */
@@ -684,22 +685,7 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
   box-shadow:0 0 8px #39ff14;
 }
 
-/* ── SETTINGS BUTTON (gear icon, top-right during gameplay) ── */
-#btn-settings{
-  position:absolute;
-  top:10px;right:14px;
-  width:44px;height:44px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,0.25);
-  background:rgba(0,0,0,0.5);
-  color:#fff;font-size:1.3rem;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;z-index:15;
-  -webkit-tap-highlight-color:transparent;
-  opacity:0;pointer-events:none;
-  transition:opacity 0.3s;
-}
-#btn-settings.show{opacity:1;pointer-events:auto;}
+/* btn-settings removed — settings in Profile Panel */
 
 /* ── SETTINGS PANEL ── */
 #settings-panel{
@@ -882,19 +868,28 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
       <span class="pp-item-arrow">›</span>
     </button>
     <div class="pp-divider"></div>
+    <button class="pp-item" onclick="closeProfile();goPage('games')" aria-label="Go to Games">
+      <span class="pp-item-icon">🎮</span>
+      <div class="pp-item-text">
+        <div class="pp-item-label">GAMES</div>
+        <div class="pp-item-sub">Shadow Chase — More Coming Soon</div>
+      </div>
+      <span class="pp-item-arrow">›</span>
+    </button>
+    <button class="pp-item" onclick="openGameSettings()" aria-label="Open game settings">
+      <span class="pp-item-icon">⚙️</span>
+      <div class="pp-item-text">
+        <div class="pp-item-label">GAME SETTINGS</div>
+        <div class="pp-item-sub">Audio, voice & controls for Shadow Chase</div>
+      </div>
+      <span class="pp-item-arrow">›</span>
+    </button>
+    <div class="pp-divider"></div>
     <button class="pp-item" onclick="closeProfile();goPage('about')" aria-label="Go to About page">
       <span class="pp-item-icon">ℹ️</span>
       <div class="pp-item-text">
         <div class="pp-item-label">ABOUT APP</div>
         <div class="pp-item-sub">Info, support & help</div>
-      </div>
-      <span class="pp-item-arrow">›</span>
-    </button>
-    <button class="pp-item" onclick="closeProfile();goPage('games')" aria-label="Go to Games">
-      <span class="pp-item-icon">🎮</span>
-      <div class="pp-item-text">
-        <div class="pp-item-label">GAMES</div>
-        <div class="pp-item-sub">Play Shadow Chase & Flappy Bird</div>
       </div>
       <span class="pp-item-arrow">›</span>
     </button>
@@ -918,13 +913,21 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
     <div class="bar-icon" aria-hidden="true">🦯</div>
     <div class="bar-title">BLIND TECH <span>ABBAS</span></div>
   </a>
-  <nav class="bar-tabs" aria-label="Main navigation">
-    <button class="tab active" id="tab-home"  onclick="goPage('home')"  aria-label="Home">HOME</button>
-    <button class="tab"        id="tab-games" onclick="goPage('games')" aria-label="Games">🎮 GAMES</button>
-    <button class="tab"        id="tab-tools" onclick="goPage('tools')" aria-label="Tools, coming soon">🔧 TOOLS</button>
-    <button class="tab"        id="tab-about" onclick="goPage('about')" aria-label="About">ABOUT</button>
+  <nav class="bar-tabs" role="tablist" aria-label="Main navigation tabs">
+    <button class="tab active" id="tab-home"  onclick="goPage('home')"
+            role="tab" aria-selected="true"  aria-controls="page-home"
+            aria-label="Home tab">HOME</button>
+    <button class="tab"        id="tab-games" onclick="goPage('games')"
+            role="tab" aria-selected="false" aria-controls="page-games"
+            aria-label="Games tab">🎮 GAMES</button>
+    <button class="tab"        id="tab-tools" onclick="goPage('tools')"
+            role="tab" aria-selected="false" aria-controls="page-tools"
+            aria-label="Tools tab, coming soon">🔧 TOOLS</button>
+    <button class="tab"        id="tab-about" onclick="goPage('about')"
+            role="tab" aria-selected="false" aria-controls="page-about"
+            aria-label="About tab">ABOUT</button>
   </nav>
-  <button id="profileBtn" onclick="toggleProfile()" aria-label="Open profile" aria-expanded="false">
+  <button id="profileBtn" onclick="toggleProfile()" aria-label="Open my profile panel" aria-expanded="false" aria-haspopup="dialog">
     <span id="barAvatarEmoji" aria-hidden="true">🧑‍💻</span>
     <img id="barAvatarImg" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%;position:absolute;inset:0;">
   </button>
@@ -933,20 +936,40 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
 <!-- ══════════════════════════════════════
      HOME PAGE
 ══════════════════════════════════════ -->
-<main id="page-home" class="page" aria-label="Home">
-  <div class="home-glow" aria-hidden="true"></div>
-  <h1 class="home-title">BLIND TECH<br><em>ABBAS ALI</em></h1>
-  <p class="home-sub">Accessible Games · Technology · Innovation</p>
-  <div class="home-btns">
-    <button class="btn-pill btn-green" onclick="goPage('games')">🎮 PLAY GAMES</button>
-    <button class="btn-pill btn-ghost" onclick="goPage('about')">ABOUT APP</button>
+<main id="page-home" class="page active" aria-label="Home" aria-hidden="false">
+  <!-- 2D particle canvas background -->
+  <canvas id="homeCanvas" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 24px;">
+    <div aria-hidden="true" style="font-size:3.5rem;margin-bottom:12px;animation:hpulse 2s ease-in-out infinite;">🦯</div>
+    <h1 class="home-title">BLIND TECH<br><em>ABBAS ALI</em></h1>
+    <p class="home-sub">Accessible Games · Technology · Innovation</p>
+    <p style="font-size:0.8rem;color:#39ff1488;letter-spacing:2px;margin-bottom:28px;max-width:260px;">Built by a blind developer — for the blind community</p>
+    <div class="home-btns">
+      <button class="btn-pill btn-green" onclick="goPage('games')" aria-label="Go to Games page and play Shadow Chase">🎮 PLAY GAMES</button>
+      <button class="btn-pill btn-ghost" onclick="goPage('about')">ABOUT APP</button>
+    </div>
+    <!-- Animated status row -->
+    <div aria-hidden="true" style="display:flex;gap:18px;margin-top:32px;flex-wrap:wrap;justify-content:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+        <span style="font-size:1.4rem;animation:hpulse 1.8s ease-in-out infinite;">🎮</span>
+        <span style="font-size:0.65rem;letter-spacing:2px;color:#39ff14;font-weight:700;">2 GAMES</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+        <span style="font-size:1.4rem;animation:hpulse 2.2s ease-in-out infinite;">♿</span>
+        <span style="font-size:0.65rem;letter-spacing:2px;color:#39ff14;font-weight:700;">ACCESSIBLE</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+        <span style="font-size:1.4rem;animation:hpulse 2.6s ease-in-out infinite;">🔊</span>
+        <span style="font-size:0.65rem;letter-spacing:2px;color:#39ff14;font-weight:700;">AUDIO FIRST</span>
+      </div>
+    </div>
   </div>
 </main>
 
 <!-- ══════════════════════════════════════
      ABOUT PAGE — App info, Support, Help
 ══════════════════════════════════════ -->
-<main id="page-about" class="page" aria-label="About Blind Tech app" style="max-width:560px;margin:0 auto;">
+<main id="page-about" class="page" aria-label="About Blind Tech app" style="max-width:560px;margin:0 auto;" aria-hidden="true">
   <h2 class="pg-title">ABOUT</h2>
 
   <!-- App Info -->
@@ -981,7 +1004,7 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
   <!-- Support & Help -->
   <h3 class="pg-title" style="font-size:1.1rem;margin-bottom:14px;">SUPPORT & HELP</h3>
   <div class="about-help">
-    <div class="help-item" onclick="showHelp('controls')" role="button" tabindex="0" aria-label="Game Controls Help">
+    <div class="help-item" onclick="showHelp('controls')" role="button" tabindex="0" aria-label="Show Game Controls help">
       <span class="about-icon">🕹️</span>
       <div>
         <div class="help-label">GAME CONTROLS</div>
@@ -989,7 +1012,7 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
       </div>
       <span class="help-arrow">›</span>
     </div>
-    <div class="help-item" onclick="showHelp('audio')" role="button" tabindex="0" aria-label="Audio Guide Help">
+    <div class="help-item" onclick="showHelp('audio')" role="button" tabindex="0" aria-label="Show Audio Guide help">
       <span class="about-icon">🔊</span>
       <div>
         <div class="help-label">AUDIO GUIDE</div>
@@ -1031,13 +1054,12 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
 <!-- ══════════════════════════════════════
      GAMES PAGE
 ══════════════════════════════════════ -->
-<main id="page-games" class="page" aria-label="Games Hub">
+<main id="page-games" class="page" aria-label="Games Hub" aria-hidden="true">
   <div class="game-select-bar">
     <label class="select-label" for="gameSelect">SELECT:</label>
     <select id="gameSelect" aria-label="Choose a game" onchange="onSelChange()">
       <option value="">— Pick a game —</option>
       <option value="sc">🐍 Shadow Chase</option>
-      <option value="fb">🐦 Flappy Bird</option>
     </select>
     <button class="play-now" onclick="launchSel()" aria-label="Play selected game">▶ PLAY</button>
   </div>
@@ -1053,44 +1075,47 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
         <button class="gplay sc-play" onclick="event.stopPropagation();launch('sc')" aria-label="Play Shadow Chase">🐍 PLAY NOW</button>
       </div>
     </div>
-    <div class="gcard" tabindex="0" role="button" aria-label="Flappy Bird game, tap to play"
-         onclick="launch('fb')" onkeydown="if(event.key==='Enter')launch('fb')">
-      <div class="gcard-thumb fb-thumb" aria-hidden="true">🐦🟡💛</div>
-      <div class="gcard-body">
-        <div class="gcard-name fb-name">FLAPPY BIRD</div>
-        <div class="gcard-sub">ACCESSIBLE EDITION</div>
-        <p class="gcard-desc">Tap to fly, avoid the pipes. High pitch = up, low pitch = falling. Screen reader friendly with vibration.</p>
-        <div class="gtags"><span class="gtag ty">PITCH AUDIO</span><span class="gtag tb">SCREEN READER</span><span class="gtag ty">ACCESSIBLE</span></div>
-        <button class="gplay fb-play" onclick="event.stopPropagation();launch('fb')" aria-label="Play Flappy Bird">🐦 PLAY NOW</button>
-      </div>
-    </div>
 
-    <!-- Coming Soon card -->
+    <!-- Coming Soon card 1 -->
     <div class="gcard-cs" aria-hidden="true">
       <div class="gcard-cs-thumb">
-        <span>🎮</span>
+        <span>🎯</span>
         <span class="cs-overlay-tag">COMING SOON</span>
       </div>
       <div class="gcard-cs-body">
         <div class="gcard-cs-name">NEW GAME</div>
+        <div class="gcard-cs-sub">ACCESSIBLE · AUDIO FIRST</div>
+        <p class="gcard-cs-desc">Next accessible game is in development. Stay tuned!</p>
+        <button class="gplay-cs" tabindex="-1" aria-hidden="true">🔒 COMING SOON</button>
+      </div>
+    </div>
+
+    <!-- Coming Soon card 2 -->
+    <div class="gcard-cs" aria-hidden="true">
+      <div class="gcard-cs-thumb">
+        <span>🃏</span>
+        <span class="cs-overlay-tag">COMING SOON</span>
+      </div>
+      <div class="gcard-cs-body">
+        <div class="gcard-cs-name">MORE GAMES</div>
         <div class="gcard-cs-sub">MORE ACCESSIBLE GAMES</div>
-        <p class="gcard-cs-desc">A new accessible game is in development. Stay tuned for the next release on Blind Tech Abbas Ali!</p>
+        <p class="gcard-cs-desc">More games are being built for the blind community. Watch this space!</p>
         <button class="gplay-cs" tabindex="-1" aria-hidden="true">🔒 COMING SOON</button>
       </div>
     </div>
   </div>
 
   <!-- Coming soon notice -->
-  <p style="text-align:center;color:var(--mt);font-size:0.78rem;
-     letter-spacing:2px;margin-top:18px;padding:0 10px;"
+  <p style="text-align:center;color:var(--ng);font-size:0.8rem;
+     letter-spacing:2px;margin-top:22px;padding:0 10px;opacity:0.7;"
      aria-label="More games coming soon announcement">
-    🚀 MORE ACCESSIBLE GAMES COMING SOON
+    🚀 GAMES — MORE COMING SOON
   </p>
 
 <!-- ══════════════════════════════════════
      TOOLS PAGE — Coming Soon
 ══════════════════════════════════════ -->
-<main id="page-tools" class="page" aria-label="Tools section, coming soon">
+<main id="page-tools" class="page" aria-label="Tools section, coming soon" aria-hidden="true">
   <div class="coming-soon-page">
     <div class="cs-badge" aria-label="Coming soon badge">🚧 COMING SOON</div>
     <div class="cs-icon" aria-hidden="true">🔧</div>
@@ -1215,14 +1240,14 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
 <div id="cm">+ENERGY!</div>
 
 <!-- SETTINGS GEAR BUTTON -->
-<button id="btn-settings" aria-label="Open Settings">⚙</button>
+<!-- Settings moved to Profile Panel -->
 
 <!-- ── SETTINGS PANEL ── -->
-<div id="settings-panel" class="hidden" role="dialog" aria-label="Game Settings">
+<div id="settings-panel" class="hidden" role="dialog" aria-label="Game Settings — Shadow Chase" aria-hidden="true" aria-modal="true">
 
   <div id="settings-header">
     <div id="settings-title">⚙ SETTINGS</div>
-    <button id="btn-settings-close" aria-label="Close Settings">✕</button>
+    <button id="btn-settings-close" aria-label="Close Game Settings and return to app" tabindex="0">✕ CLOSE</button>
   </div>
 
   <!-- AUDIO SECTION -->
@@ -1392,7 +1417,7 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
     <button class="btn bs" id="b-snake" aria-label="Play as Snake">🐍 SNAKE</button>
     <button class="btn bt2" id="b-tiger" aria-label="Play as Tiger">🐯 TIGER</button>
   </div>
-  <button class="btn bn" id="b-settings-role" aria-label="Open Settings" style="margin-top:6px;font-size:1rem;padding:10px 24px;">⚙ SETTINGS</button>
+  <!-- Settings moved to Profile Panel -->
   <p style="font-size:0.68rem;opacity:0.28;letter-spacing:2px;margin-top:4px">SWIPE ZONE GRID · LONG SWIPE = SPRINT · CENTER TAP = SPECIAL</p>
 </div>
 
@@ -1806,7 +1831,7 @@ const initGame=(r)=>{
   $('zones').classList.add('show');
   // Show control buttons + settings gear
   document.querySelectorAll('.ctrl-btn').forEach(b=>b.classList.add('show'));
-  $('btn-settings').classList.add('show');
+  // btn-settings removed
 
   if(hbInt)clearInterval(hbInt);
   hbInt=setInterval(tickHB,600);
@@ -2077,7 +2102,7 @@ const endGame=(won,msg)=>{
   document.body.classList.remove('danger','tiger-close');
   $('zones').style.pointerEvents='none';$('zones').classList.remove('show');
   document.querySelectorAll('.ctrl-btn').forEach(b=>b.classList.remove('show'));
-  $('btn-settings').classList.remove('show');
+  // btn-settings removed
   $('settings-panel').classList.add('hidden');
   if(role==='snake'){if(score>bSnake)bSnake=score;}else{if(score>bTiger)bTiger=score;}
   vib(won?[80,40,80,40,250]:[400]);
@@ -2412,8 +2437,7 @@ $('b-tiger').addEventListener('touchstart',(e)=>{
   e.preventDefault();gAC();
   startRole('tiger');
 },{passive:false});
-$('b-settings-role').addEventListener('click',()=>{gAC();openSettings();});
-$('b-settings-role').addEventListener('touchstart',(e)=>{e.preventDefault();gAC();openSettings();},{passive:false});
+// Settings button moved to Profile Panel
 $('b-replay').addEventListener('click',()=>{$('s-result').classList.add('hidden');initGame(lastRole);});
 $('b-menu').addEventListener('click',()=>{
   $('s-result').classList.add('hidden');$('s-role').classList.remove('hidden');
@@ -2458,11 +2482,20 @@ const openSettings=()=>{
 };
 const closeSettings=()=>{
   $('settings-panel').classList.add('hidden');
-  speak('Settings closed.',true);
+  $('settings-panel').setAttribute('aria-hidden','true');
+  speak('Settings closed. Back to app.',true);
+  // Restore focus to profile button
+  setTimeout(()=>{
+    if(lastFocusBeforeDialog&&lastFocusBeforeDialog.focus){
+      lastFocusBeforeDialog.focus();
+    } else {
+      const pb=document.getElementById('profileBtn');
+      if(pb)pb.focus();
+    }
+  },80);
 };
 
-$('btn-settings').addEventListener('click',openSettings);
-$('btn-settings').addEventListener('touchstart',(e)=>{e.preventDefault();e.stopPropagation();gAC();openSettings();},{passive:false});
+// btn-settings event listeners removed - settings in profile panel
 $('btn-settings-close').addEventListener('click',closeSettings);
 $('btn-settings-close').addEventListener('touchstart',(e)=>{e.preventDefault();closeSettings();},{passive:false});
 
@@ -2530,54 +2563,19 @@ window.addEventListener('load',()=>{
   // Auto-dismiss splash after 4 seconds
   setTimeout(()=>dismissSplash(), 4000);
 });
+
+// Expose stop function so outer shell can kill audio on close
+window.__scStop=()=>{
+  try{
+    active=false;
+    clearInterval(hbInt);
+    stopCA();
+    if(AC){AC.suspend();AC=null;}
+  }catch(e){}
+};
 </script>
 </div>
-    <div id="fb-wrap">
-<div id="fb-liveRegion" role="status" aria-live="assertive" aria-atomic="true"
-     style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden"></div>
-<div id="fb-startScreen" style="position:absolute;inset:0;background:#000;
-     display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10">
-  <div style="text-align:center;padding:24px;max-width:480px">
-    <div style="color:#ffff00;font-size:2rem;font-weight:bold;margin-bottom:20px;
-         text-shadow:0 0 12px #ffff00">🎮 FLAPPY BIRD 🎮</div>
-    <div style="color:#00ff00;font-size:1rem;margin-bottom:28px;line-height:1.9">
-      <strong>HOW TO PLAY</strong><br><br>
-      👆 Tap START to begin<br>
-      🔊 High pitch = flying up<br>
-      🔉 Low pitch = falling<br>
-      🎯 Avoid the green pipes<br>
-      📳 Vibration on crash
-    </div>
-    <button id="fb-startButton" aria-label="Start Flappy Bird"
-      style="background:#ffff00;color:#000;border:none;padding:22px 44px;
-             font-size:1.4rem;font-weight:bold;border-radius:10px;cursor:pointer;
-             box-shadow:0 0 20px #ffff00;width:90%;max-width:340px;">START GAME</button>
-  </div>
-</div>
-<div id="fb-gameContainer" style="position:absolute;inset:0;background:#000;
-     display:none;flex-direction:column;align-items:center;justify-content:center">
-  <div style="position:absolute;top:8px;left:8px;z-index:20;background:#000;
-       border:2px solid #ffff00;padding:8px;border-radius:6px">
-    <label for="fb-volumeControl" style="color:#ffff00;display:block;font-size:0.8rem;
-           font-weight:bold;margin-bottom:4px">Volume</label>
-    <input type="range" id="fb-volumeControl" min="0" max="100" value="70"
-           style="width:120px;accent-color:#ffff00" aria-label="Volume">
-  </div>
-  <canvas id="fb-canvas" role="img" aria-label="Flappy Bird canvas"
-    style="display:block;background:#1a1a1a;border:4px solid #ffff00;
-           width:100%;height:100%;touch-action:none;cursor:pointer"></canvas>
-  <div role="status" aria-live="polite"
-    style="position:absolute;bottom:16px;left:16px;right:16px;
-           background:rgba(0,0,0,0.95);border:3px solid #00ff00;padding:12px;
-           border-radius:6px;color:#00ff00;font-size:1rem;font-weight:bold;
-           text-align:center;font-family:monospace">
-    <div id="fb-statusText">READY</div>
-    <div style="font-size:0.9rem;margin-top:4px">Score: <span id="fb-scoreDisplay">0</span></div>
-  </div>
-</div>
-</div>
-  </div>
-</div>
+<!-- Flappy Bird removed -->
 
 <script>
 // ══════════════════════════════════════
@@ -2731,24 +2729,39 @@ function goPage(name){
   PAGES.forEach(p=>{
     const pg=document.getElementById('page-'+p);
     const tb=document.getElementById('tab-'+p);
-    if(pg)pg.classList.toggle('active',p===name);
-    if(tb)tb.classList.toggle('active',p===name);
+    const isActive=(p===name);
+    // Toggle page visibility
+    if(pg){
+      pg.classList.toggle('active',isActive);
+      pg.setAttribute('aria-hidden', isActive?'false':'true');
+    }
+    // Toggle tab active state + aria-selected
+    if(tb){
+      tb.classList.toggle('active',isActive);
+      tb.setAttribute('aria-selected', isActive?'true':'false');
+    }
   });
   closeProfile();
-  // Move focus to page heading — screen reader reads the page title
+  // Move TalkBack focus to page heading immediately
   setTimeout(()=>{
     const pg=document.getElementById('page-'+name);
     if(pg){
-      const h=pg.querySelector('h1,h2');
-      if(h){h.setAttribute('tabindex','-1');h.focus();}
-      else{pg.setAttribute('tabindex','-1');pg.focus();}
+      // Try H1 first, then H2, then page itself
+      const heading=pg.querySelector('h1,h2,[data-focus-target]');
+      if(heading){
+        heading.setAttribute('tabindex','-1');
+        heading.focus({preventScroll:false});
+      } else {
+        pg.setAttribute('tabindex','-1');
+        pg.focus({preventScroll:false});
+      }
     }
-  },80);
+  },100);
   const labels={
-    home:'Home page',
-    games:'Games Hub — choose a game to play',
-    tools:'Tools section — coming soon',
-    about:'About — App info, support and help'
+    home:'Home page. Blind Tech Abbas Ali.',
+    games:'Games page. Shadow Chase available. More games coming soon.',
+    tools:'Tools section. Coming soon.',
+    about:'About page. App info, support and help.'
   };
   ann(labels[name]||name);
 }
@@ -2801,7 +2814,6 @@ function showHelp(type){
 function onSelChange(){
   const v=document.getElementById('gameSelect').value;
   if(v==='sc')ann('Shadow Chase selected. Press Play.');
-  else if(v==='fb')ann('Flappy Bird selected. Press Play.');
 }
 function launchSel(){
   const v=document.getElementById('gameSelect').value;
@@ -2813,8 +2825,7 @@ function launch(id){
   lastFocusBeforeDialog=document.activeElement;
   curGame=id;
   document.getElementById('sc-wrap').classList.toggle('vis',id==='sc');
-  document.getElementById('fb-wrap').classList.toggle('vis',id==='fb');
-  const t={sc:'🐍 Shadow Chase',fb:'🐦 Flappy Bird'};
+  const t={sc:'🐍 Shadow Chase'};
   document.getElementById('gBarTitle').textContent=t[id]||'Game';
   const overlay=document.getElementById('gOverlay');
   overlay.classList.add('open');
@@ -2830,10 +2841,35 @@ function closeGame(){
   const overlay=document.getElementById('gOverlay');
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden','true');
-  if(typeof window.__fbReset==='function'&&curGame==='fb')window.__fbReset();
+  if(curGame==='sc'&&typeof window.__scStop==='function')window.__scStop();
+  if(curGame==='fb'&&typeof window.__fbReset==='function')window.__fbReset();
   curGame=null;
   goPage('games');
   ann('Game closed. Back to Games page.');
+}
+
+// Open settings panel from profile panel
+function openGameSettings(){
+  lastFocusBeforeDialog=document.activeElement;
+  closeProfile();
+  const sp=document.getElementById('settings-panel');
+  if(sp){
+    sp.classList.remove('hidden');
+    sp.scrollTop=0;
+    sp.setAttribute('aria-hidden','false');
+    ann('Game Settings opened. Swipe to browse. Audio, Voice, and Controls sections. Tap close button to go back.');
+    setTimeout(()=>{
+      // Focus the close button — TalkBack reads it first
+      const closeBtn=document.getElementById('btn-settings-close');
+      if(closeBtn){closeBtn.setAttribute('tabindex','0');closeBtn.focus();}
+      else{
+        const first=sp.querySelector('input,button');
+        if(first)first.focus();
+      }
+    },120);
+  } else {
+    ann('Settings not available.');
+  }
 }
 
 // ══════════════════════════════════════
@@ -2842,6 +2878,7 @@ function closeGame(){
 window.addEventListener('load',()=>{
   loadProfile();
   applyProfileUI();
+  goPage('home');
   if(!isProfileSet()){
     showOnboarding();
   } else {
@@ -2942,15 +2979,140 @@ window.addEventListener('load',()=>{
   gc.addEventListener('touchstart',(e)=>{e.preventDefault();handleTap(e);},{passive:false});
   gc.addEventListener('click',(e)=>handleTap(e));
   vol.addEventListener('input',(e)=>{audioVol=parseInt(e.target.value)/100;});
+  let _launching=false;
   sbtn.addEventListener('click',(e)=>{
     e.preventDefault();e.stopPropagation();
+    if(_launching||started)return;
+    _launching=true;
     initAudio();if(AC&&AC.state==='suspended')AC.resume();
     if(navigator.vibrate)navigator.vibrate([100,50,100]);
+    ann('Starting Flappy Bird...');
     setTimeout(()=>{
       ss.style.display='none';gc.style.display='flex';
       resize();bird.x=cv.width*0.2;bird.y=cv.height/2;nextPX=cv.width+200;
-      started=true;running=true;over=false;
-      ann('Flappy Bird started! Tap to fly.');updSt();loop();
+      started=true;running=true;over=false;_launching=false;
+      ann('Flappy Bird started! Tap anywhere to fly up. Avoid the pipes.');updSt();loop();
     },400);
   });
-  sbtn.addEven
+  sbtn.addEventListener('keydown',(e)=>{
+    if(e.key==='Enter'||e.key===' ')sbtn.click();
+  });
+  window.__fbReset=function(){
+    started=false;running=false;over=false;score=0;pipes=[];passed.clear();
+    _launching=false;
+    ss.style.display='flex';gc.style.display='none';
+    if(navGain&&AC)navGain.gain.setTargetAtTime(0,AC.currentTime,0.1);
+    ann('Flappy Bird reset. Tap Start Game to play again.');
+  };
+  resize();
+  window.addEventListener('resize',resize);
+});
+</script>
+
+<script>
+// ── HOME PAGE 2D PARTICLE ANIMATION ──
+(function(){
+  const cv=document.getElementById('homeCanvas');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  let W,H,particles=[],raf;
+  
+  function resize(){
+    const pg=document.getElementById('page-home');
+    W=cv.width=pg.offsetWidth||window.innerWidth;
+    H=cv.height=pg.offsetHeight||window.innerHeight;
+  }
+  
+  function Particle(){
+    this.reset=function(){
+      this.x=Math.random()*W;
+      this.y=Math.random()*H;
+      this.r=Math.random()*2+0.5;
+      this.vx=(Math.random()-0.5)*0.4;
+      this.vy=-Math.random()*0.6-0.2;
+      this.alpha=Math.random()*0.6+0.2;
+      this.life=Math.random()*200+100;
+      this.age=0;
+      this.color=Math.random()>0.85?'#ff6a00':'#39ff14';
+    };
+    this.reset();
+    this.y=Math.random()*H; // start anywhere
+  }
+  
+  function init(){
+    particles=[];
+    for(let i=0;i<55;i++){
+      const p=new Particle();
+      p.age=Math.random()*p.life;
+      particles.push(p);
+    }
+  }
+  
+  let scanY=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    
+    // Radial glow center
+    const grd=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,W*0.55);
+    grd.addColorStop(0,'rgba(57,255,20,0.06)');
+    grd.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,W,H);
+    
+    // Particles
+    particles.forEach(p=>{
+      p.age++;
+      p.x+=p.vx;
+      p.y+=p.vy;
+      const fade=p.age<20?p.age/20:p.age>p.life-20?(p.life-p.age)/20:1;
+      ctx.globalAlpha=p.alpha*fade;
+      ctx.fillStyle=p.color;
+      ctx.shadowColor=p.color;
+      ctx.shadowBlur=6;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+      ctx.shadowBlur=0;
+      if(p.age>=p.life||p.y<-5||p.x<-5||p.x>W+5)p.reset();
+    });
+    ctx.globalAlpha=1;
+    
+    // Scan line sweep
+    scanY=(scanY+1.2)%H;
+    const sg=ctx.createLinearGradient(0,scanY-18,0,scanY+2);
+    sg.addColorStop(0,'rgba(57,255,20,0)');
+    sg.addColorStop(1,'rgba(57,255,20,0.06)');
+    ctx.fillStyle=sg;
+    ctx.fillRect(0,scanY-18,W,20);
+    
+    raf=requestAnimationFrame(draw);
+  }
+  
+  // Only animate when home page is active
+  const observer=new MutationObserver(()=>{
+    const pg=document.getElementById('page-home');
+    if(pg&&pg.classList.contains('active')){
+      if(!raf){resize();init();draw();}
+    } else {
+      if(raf){cancelAnimationFrame(raf);raf=null;}
+    }
+  });
+  
+  const pg=document.getElementById('page-home');
+  if(pg){observer.observe(pg,{attributes:true,attributeFilter:['class']});}
+  
+  // Start if already active
+  if(pg&&pg.classList.contains('active')){
+    setTimeout(()=>{resize();init();draw();},100);
+  }
+  
+  window.addEventListener('resize',()=>{
+    if(document.getElementById('page-home').classList.contains('active')){
+      resize();init();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
