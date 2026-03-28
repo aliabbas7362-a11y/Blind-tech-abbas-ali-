@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Blind Tech — Abbas Ali</title>
+<title>Blind Tech Abbas Ali — Accessible Gaming &amp; Tools</title>
+<meta name="description" content="A premium, fully accessible gaming and utility platform designed by Abbas Ali for blind and sighted users. Play Shadow Chase with spatial audio and voice guidance.">
+<meta name="keywords" content="Blind Tech, Abbas Ali, Accessible Games, Shadow Chase, B-Coins, Blind Gaming, TalkBack Games, Accessible App, Quetta Pakistan">
+<meta name="author" content="Abbas Ali">
+<meta name="theme-color" content="#08090e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blind Tech Abbas Ali — Accessible Gaming &amp; Tools">
+<meta property="og:description" content="Premium accessible gaming platform for blind users. Shadow Chase with spatial audio, B-Coins economy, and voice-first design.">
+<meta property="og:image" content="https://blindtechabbas.github.io/preview.png">
+<meta property="og:url" content="https://blindtechabbas.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blind Tech Abbas Ali — Accessible Gaming">
+<meta name="twitter:description" content="Accessible games and tools for blind users by Abbas Ali.">
+<link rel="canonical" href="https://blindtechabbas.github.io">
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -106,6 +119,194 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--tx);font-famil
 .pp-item-sub{font-size:0.75rem;color:var(--mt);margin-top:1px;}
 .pp-item-arrow{margin-left:auto;color:var(--mt);font-size:0.9rem;}
 .pp-divider{height:1px;background:var(--brd);margin:4px 20px;}
+/* ── SKIP LINK ── */
+.skip-link{
+  position:absolute;top:-100px;left:16px;
+  background:var(--ng);color:#000;
+  padding:10px 18px;border-radius:8px;
+  font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1px;
+  font-size:0.9rem;z-index:9999;text-decoration:none;
+  transition:top 0.2s;
+}
+.skip-link:focus{top:8px;}
+
+/* ── ANIMATED GRADIENT BACKGROUND ── */
+@keyframes bgShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+#bgCanvas{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(135deg,#08090e,#0a0518,#080e14,#06100a,#08090e);
+  background-size:400% 400%;
+  animation:bgShift 18s ease infinite;
+}
+
+/* ── GLASSMORPHISM ── */
+.gcard{
+  background:rgba(22,23,36,0.55)!important;
+  backdrop-filter:blur(10px)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  border:1.5px solid rgba(57,255,20,0.15)!important;
+}
+.about-section,.about-help,.hub-shop-item,.hub-coins-row{
+  background:rgba(22,23,36,0.5)!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+}
+#profilePanel{
+  background:rgba(16,17,26,0.92)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+#appBar{
+  background:rgba(8,9,14,0.85)!important;
+  backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+}
+
+/* ── BREATHING NEON GLOW — Play & Spin buttons ── */
+@keyframes neonBreath{
+  0%,100%{box-shadow:0 0 10px rgba(57,255,20,0.3),0 0 20px rgba(57,255,20,0.15);}
+  50%{box-shadow:0 0 22px rgba(57,255,20,0.7),0 0 45px rgba(57,255,20,0.35),0 0 70px rgba(57,255,20,0.1);}
+}
+@keyframes neonBreathOrange{
+  0%,100%{box-shadow:0 0 10px rgba(255,106,0,0.35),0 0 22px rgba(238,9,121,0.2);}
+  50%{box-shadow:0 0 24px rgba(255,106,0,0.8),0 0 50px rgba(238,9,121,0.4),0 0 80px rgba(255,106,0,0.15);}
+}
+.btn-green,.sc-play,.gplay{
+  animation:neonBreath 2.4s ease-in-out infinite!important;
+}
+.hub-spin-btn:not(:disabled){
+  animation:neonBreathOrange 2s ease-in-out infinite!important;
+}
+
+/* ── UI CLICK SOUND TOGGLE in hub ── */
+.hub-ui-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;
+}
+.hub-ui-toggle-label{
+  font-family:'Rajdhani',sans-serif;font-size:0.9rem;
+  font-weight:700;letter-spacing:1.5px;color:var(--tx);
+}
+.hub-ui-toggle-sub{font-size:0.72rem;color:var(--mt);margin-top:1px;}
+
+
+/* ── PROFILE HUB SECTIONS ── */
+.hub-section{
+  padding:14px 18px 10px;
+  border-bottom:1px solid var(--brd);
+}
+.hub-section:last-child{border-bottom:none;}
+.hub-section-title{
+  font-family:'Rajdhani',sans-serif;
+  font-size:0.7rem;font-weight:700;
+  letter-spacing:3px;color:var(--ng);
+  opacity:0.7;margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+/* Coins display */
+.hub-coins-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(57,255,20,0.06);
+  border:1px solid rgba(57,255,20,0.2);
+  border-radius:12px;padding:12px 16px;
+}
+.hub-coins-val{
+  font-family:'Rajdhani',sans-serif;
+  font-size:1.6rem;font-weight:700;color:var(--ng);
+  letter-spacing:2px;
+}
+.hub-coins-lbl{
+  font-size:0.65rem;letter-spacing:2px;color:var(--mt);margin-top:1px;
+}
+
+/* Spin button */
+.hub-spin-btn{
+  width:100%;min-height:52px;
+  background:linear-gradient(135deg,#ff6a00,#ee0979);
+  color:#fff;border:none;border-radius:12px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:1rem;font-weight:700;letter-spacing:2px;
+  cursor:pointer;margin-top:10px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  -webkit-tap-highlight-color:transparent;
+  transition:opacity 0.2s,transform 0.1s;
+  box-shadow:0 0 16px rgba(255,106,0,0.35);
+}
+.hub-spin-btn:active{opacity:0.8;transform:scale(0.97);}
+.hub-spin-btn:disabled{
+  background:#2a2a2a;color:#555;
+  box-shadow:none;cursor:default;
+}
+.hub-spin-spinning{
+  animation:spinPulse 0.4s ease-in-out infinite alternate;
+}
+@keyframes spinPulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.03);}
+}
+
+/* Shop items */
+.hub-shop-item{
+  display:flex;align-items:center;
+  gap:12px;padding:11px 14px;
+  background:var(--card);border-radius:12px;
+  border:1px solid var(--brd);
+  margin-bottom:8px;
+}
+.hub-shop-item:last-child{margin-bottom:0;}
+.hub-shop-icon{font-size:1.6rem;flex-shrink:0;}
+.hub-shop-info{flex:1;}
+.hub-shop-name{
+  font-family:'Rajdhani',sans-serif;
+  font-size:0.95rem;font-weight:700;
+  letter-spacing:1.5px;color:var(--tx);
+}
+.hub-shop-price{font-size:0.72rem;color:var(--ng);letter-spacing:1px;margin-top:1px;}
+.hub-shop-tag{
+  font-size:0.6rem;letter-spacing:2px;
+  color:var(--mt);margin-top:2px;
+}
+.hub-buy-btn{
+  min-width:48px;min-height:48px;
+  background:rgba(57,255,20,0.1);
+  border:1.5px solid rgba(57,255,20,0.35);
+  color:var(--ng);border-radius:10px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:0.8rem;font-weight:700;letter-spacing:1px;
+  cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+  transition:background 0.15s;
+}
+.hub-buy-btn:active{background:rgba(57,255,20,0.22);}
+.hub-buy-btn.owned{
+  background:rgba(57,255,20,0.06);
+  color:#555;border-color:#333;
+  cursor:default;
+}
+
+/* Claim reward button (in game) */
+#b-claim{
+  min-width:48px;min-height:52px;
+  background:linear-gradient(135deg,#39ff14,#00cfff);
+  color:#000;border:none;border-radius:12px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:1rem;font-weight:900;letter-spacing:2px;
+  cursor:pointer;padding:0 24px;
+  box-shadow:0 0 20px rgba(57,255,20,0.5);
+  -webkit-tap-highlight-color:transparent;
+  animation:claimPulse 1s ease-in-out infinite;
+}
+@keyframes claimPulse{
+  0%,100%{box-shadow:0 0 14px rgba(57,255,20,0.4);}
+  50%{box-shadow:0 0 28px rgba(57,255,20,0.8);}
+}
+#b-claim:active{transform:scale(0.96);}
 
 /* ── PAGES ── */
 .page{position:fixed;top:var(--bar);left:0;right:0;bottom:0;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;padding:24px 16px 40px;}
@@ -791,6 +992,8 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+<div id="bgCanvas" aria-hidden="true"></div>
 
 <!-- SCREEN READER LIVE REGION -->
 <div id="sr" role="status" aria-live="polite"></div>
@@ -835,40 +1038,109 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
 <!-- ══════════════════════════════════════
      PROFILE PANEL (slide from right)
 ══════════════════════════════════════ -->
-<div id="profilePanel" role="dialog" aria-label="Your profile" aria-hidden="true">
+<div id="profilePanel" role="dialog" aria-label="User Hub — Profile, Coins, Shop and Settings" aria-hidden="true">
+
+  <!-- Header -->
   <div class="pp-header">
-    <span class="pp-title">MY PROFILE</span>
-    <button class="pp-close" onclick="closeProfile()" aria-label="Close profile">✕</button>
+    <span class="pp-title" id="hub-title">USER HUB</span>
+    <button class="pp-close" onclick="closeProfile()" aria-label="Close User Hub">✕</button>
   </div>
 
-  <!-- User avatar + name -->
+  <!-- Avatar + Name -->
   <div class="pp-avatar-wrap">
     <div class="pp-avatar" onclick="triggerAvatarChange()" role="button"
-         aria-label="Change profile picture" tabindex="0">
+         aria-label="Change profile picture, double tap to choose photo" tabindex="0">
       <span id="ppAvatarEmoji" aria-hidden="true">🧑‍💻</span>
-      <img id="ppAvatarImg" src="" alt="Profile photo" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <img id="ppAvatarImg" src="" alt="Profile photo"
+           style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
       <div class="pp-avatar-edit">CHANGE</div>
     </div>
     <div class="pp-name" id="ppName">Your Name</div>
     <div class="pp-role">BLIND TECH USER</div>
   </div>
 
-  <!-- Hidden file input for profile change -->
+  <!-- Hidden file input -->
   <input type="file" id="avatarChangeInput" accept="image/*" style="display:none"
          aria-label="Change profile photo">
 
-  <!-- Menu items -->
-  <div class="pp-menu">
-    <button class="pp-item" onclick="editProfile()" aria-label="Edit your profile">
-      <span class="pp-item-icon">✏️</span>
-      <div class="pp-item-text">
-        <div class="pp-item-label">EDIT PROFILE</div>
-        <div class="pp-item-sub">Change name or photo</div>
+  <!-- ── SECTION 1: B-COINS BALANCE ── -->
+  <section class="hub-section"
+           aria-labelledby="hub-stats-title"
+           aria-roledescription="Earning Statistics">
+    <div class="hub-section-title" id="hub-stats-title">💰 B-COINS</div>
+    <div class="hub-coins-row"
+         aria-label="Your B-Coins balance"
+         aria-live="polite" aria-atomic="true">
+      <div>
+        <div class="hub-coins-val" id="hub-coins-display">0</div>
+        <div class="hub-coins-lbl">B-COINS BALANCE</div>
       </div>
-      <span class="pp-item-arrow">›</span>
+      <span aria-hidden="true" style="font-size:1.8rem;">🪙</span>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: DAILY LUCKY SPIN ── -->
+  <section class="hub-section"
+           aria-labelledby="hub-spin-title"
+           aria-roledescription="Daily Reward Wheel">
+    <div class="hub-section-title" id="hub-spin-title">🎡 DAILY LUCKY SPIN</div>
+    <p style="font-size:0.75rem;color:var(--mt);margin-bottom:4px;letter-spacing:1px;"
+       id="hub-spin-status" aria-live="polite" aria-atomic="true">
+      Spin once per 24 hours to earn B-Coins
+    </p>
+    <button id="hub-spin-btn" class="hub-spin-btn"
+            onclick="doSpin()"
+            aria-label="Daily Lucky Spin — tap to spin the reward wheel"
+            aria-describedby="hub-spin-status">
+      🎡 SPIN NOW
     </button>
-    <div class="pp-divider"></div>
-    <button class="pp-item" onclick="closeProfile();goPage('games')" aria-label="Go to Games">
+  </section>
+
+  <!-- ── SECTION 3: SHOP ── -->
+  <section class="hub-section"
+           aria-labelledby="hub-shop-title"
+           aria-roledescription="Shop Category">
+    <div class="hub-section-title" id="hub-shop-title">🛒 SHOP</div>
+    <p style="font-size:0.72rem;color:var(--mt);margin-bottom:10px;letter-spacing:1px;"
+       id="hub-shop-msg" aria-live="assertive" aria-atomic="true"></p>
+
+    <!-- Radar -->
+    <div class="hub-shop-item" role="group" aria-label="Radar power-up item">
+      <span class="hub-shop-icon" aria-hidden="true">📡</span>
+      <div class="hub-shop-info">
+        <div class="hub-shop-name">RADAR</div>
+        <div class="hub-shop-price">500 B-COINS</div>
+        <div class="hub-shop-tag" id="radar-tag">Reveals safe hole direction</div>
+      </div>
+      <button id="btn-buy-radar" class="hub-buy-btn"
+              onclick="buyItem('radar',500)"
+              aria-label="Buy Radar for 500 B-Coins — reveals safe hole direction">
+        BUY
+      </button>
+    </div>
+
+    <!-- Shield -->
+    <div class="hub-shop-item" role="group" aria-label="Shield power-up item">
+      <span class="hub-shop-icon" aria-hidden="true">🛡️</span>
+      <div class="hub-shop-info">
+        <div class="hub-shop-name">SHIELD</div>
+        <div class="hub-shop-price">300 B-COINS</div>
+        <div class="hub-shop-tag" id="shield-tag">One-time tiger hit protection</div>
+      </div>
+      <button id="btn-buy-shield" class="hub-buy-btn"
+              onclick="buyItem('shield',300)"
+              aria-label="Buy Shield for 300 B-Coins — one-time tiger hit protection">
+        BUY
+      </button>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: NAVIGATION ── -->
+  <section class="hub-section"
+           aria-labelledby="hub-nav-title"
+           aria-roledescription="App Navigation">
+    <div class="hub-section-title" id="hub-nav-title">🗺️ NAVIGATE</div>
+    <button class="pp-item" onclick="closeProfile();goPage('games')" aria-label="Go to Games page">
       <span class="pp-item-icon">🎮</span>
       <div class="pp-item-text">
         <div class="pp-item-label">GAMES</div>
@@ -876,33 +1148,47 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
       </div>
       <span class="pp-item-arrow">›</span>
     </button>
-    <button class="pp-item" onclick="openGameSettings()" aria-label="Open game settings">
+    <button class="pp-item" onclick="openGameSettings()" aria-label="Open Game Settings panel">
       <span class="pp-item-icon">⚙️</span>
       <div class="pp-item-text">
         <div class="pp-item-label">GAME SETTINGS</div>
-        <div class="pp-item-sub">Audio, voice & controls for Shadow Chase</div>
+        <div class="pp-item-sub">Audio, voice &amp; controls</div>
       </div>
       <span class="pp-item-arrow">›</span>
     </button>
-    <div class="pp-divider"></div>
     <button class="pp-item" onclick="closeProfile();goPage('about')" aria-label="Go to About page">
       <span class="pp-item-icon">ℹ️</span>
       <div class="pp-item-text">
         <div class="pp-item-label">ABOUT APP</div>
-        <div class="pp-item-sub">Info, support & help</div>
+        <div class="pp-item-sub">Info, support &amp; help</div>
       </div>
       <span class="pp-item-arrow">›</span>
     </button>
-    <div class="pp-divider"></div>
-    <button class="pp-item" onclick="resetProfileConfirm()" aria-label="Reset profile">
+  </section>
+
+  <!-- ── SECTION 5: PROFILE ACTIONS ── -->
+  <section class="hub-section"
+           aria-labelledby="hub-profile-title"
+           aria-roledescription="Profile Management">
+    <div class="hub-section-title" id="hub-profile-title">👤 PROFILE</div>
+    <button class="pp-item" onclick="editProfile()" aria-label="Edit your profile name and photo">
+      <span class="pp-item-icon">✏️</span>
+      <div class="pp-item-text">
+        <div class="pp-item-label">EDIT PROFILE</div>
+        <div class="pp-item-sub">Change name or photo</div>
+      </div>
+      <span class="pp-item-arrow">›</span>
+    </button>
+    <button class="pp-item" onclick="resetProfileConfirm()" aria-label="Reset profile and delete all data">
       <span class="pp-item-icon">🗑️</span>
       <div class="pp-item-text">
         <div class="pp-item-label" style="color:#ff4444;">RESET PROFILE</div>
-        <div class="pp-item-sub">Delete your data</div>
+        <div class="pp-item-sub">Delete all your data</div>
       </div>
       <span class="pp-item-arrow">›</span>
     </button>
-  </div>
+  </section>
+
 </div>
 
 <!-- ══════════════════════════════════════
@@ -936,7 +1222,8 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
 <!-- ══════════════════════════════════════
      HOME PAGE
 ══════════════════════════════════════ -->
-<main id="page-home" class="page active" aria-label="Home" aria-hidden="false">
+<main id="page-home" class="page active" aria-label="Home" aria-hidden="false" tabindex="-1">
+  <div id="main-content"><!-- main content anchor --></div>
   <!-- 2D particle canvas background -->
   <canvas id="homeCanvas" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 24px;">
@@ -982,7 +1269,7 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
     <div class="about-row">
       <span class="about-icon">🎮</span>
       <span class="about-label">GAMES</span>
-      <span class="about-val">Shadow Chase · Flappy Bird</span>
+      <span class="about-val">Shadow Chase — More coming soon</span>
     </div>
     <div class="about-row">
       <span class="about-icon">♿</span>
@@ -1039,12 +1326,12 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
       <span class="help-arrow">↗</span>
     </div>
     <div class="help-item" role="link" tabindex="0"
-         onclick="window.location.href='mailto:aliabbas7362@gmail.com'"
-         aria-label="Contact by email">
+         onclick="window.location.href='mailto:blindtechabbasali@gmail.com'"
+         aria-label="Contact by email — blindtechabbasali@gmail.com">
       <span class="about-icon">📧</span>
       <div>
         <div class="help-label">CONTACT</div>
-        <div class="help-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92f3fefbf3f0f0f3e1a5a1a4a0d2f5fff3fbfebcf1fdff">[email&#160;protected]</a></div>
+        <div class="help-sub"><a href="/cdn-cgi/l/email-protection#482a2421262c3c2d2b20292a2a293b292421082f25292124662b2725" style="color:var(--cy);text-decoration:none;">blindtechabbasali@gmail.com</a></div>
       </div>
       <span class="help-arrow">›</span>
     </div>
@@ -1397,6 +1684,21 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
     </div>
   </div>
 
+  <!-- UI SOUNDS SECTION -->
+  <div class="settings-section">
+    <div class="settings-section-title">🔔 UI Sounds</div>
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <span class="toggle-label">UI Click &amp; Coin Sounds</span>
+        <span class="toggle-desc">Spin wheel, ka-ching, shop &amp; button sounds</span>
+      </div>
+      <label class="toggle-switch" aria-label="Toggle UI sounds including spin wheel and coin sounds">
+        <input type="checkbox" id="s-uisound" checked>
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
 </div>
 
 <div id="bars" class="hidden">
@@ -1426,13 +1728,24 @@ body.tiger-close{animation:tiger-alert 0.2s infinite}
   <div id="rt">—</div>
   <div id="rm" style="font-size:1rem;letter-spacing:2px;opacity:0.85"></div>
   <div id="rsc" style="font-size:0.9rem;opacity:0.6;letter-spacing:2px"></div>
+  <!-- Claim reward — only shown on win -->
+  <div id="claim-wrap" style="display:none;margin-top:12px;">
+    <div id="claim-amount" style="font-family:'Rajdhani',sans-serif;font-size:0.85rem;
+         letter-spacing:2px;color:#39ff14;margin-bottom:8px;text-align:center;"
+         aria-live="polite"></div>
+    <button id="b-claim"
+            aria-label="Claim your B-Coins reward for winning"
+            onclick="claimReward()">
+      🪙 CLAIM REWARD
+    </button>
+  </div>
   <div class="br-row" style="margin-top:10px">
     <button class="btn bn" id="b-replay" aria-label="Play again">↺ PLAY AGAIN</button>
     <button class="btn bn" id="b-menu"   aria-label="Main menu">☰ MENU</button>
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════
 //  REFS
 // ═══════════════════════════════════
@@ -2102,7 +2415,6 @@ const endGame=(won,msg)=>{
   document.body.classList.remove('danger','tiger-close');
   $('zones').style.pointerEvents='none';$('zones').classList.remove('show');
   document.querySelectorAll('.ctrl-btn').forEach(b=>b.classList.remove('show'));
-  // btn-settings removed
   $('settings-panel').classList.add('hidden');
   if(role==='snake'){if(score>bSnake)bSnake=score;}else{if(score>bTiger)bTiger=score;}
   vib(won?[80,40,80,40,250]:[400]);
@@ -2114,7 +2426,20 @@ const endGame=(won,msg)=>{
   t.textContent=won?'🏆 WIN!':'💀 LOST';
   t.style.color=won?(role==='snake'?'#39ff14':'#ff6a00'):'#ff2020';
   $('rm').textContent=msg;
-  $('rsc').textContent=`SCORE: ${score}  ·  BEST: ${role==='snake'?bSnake:bTiger}`;
+  $('rsc').textContent='SCORE: '+score+'  ·  BEST: '+(role==='snake'?bSnake:bTiger);
+  const cw=$('claim-wrap');const ca=$('claim-amount');
+  if(cw&&ca){
+    if(won){
+      const earnAmt=50+Math.floor(Math.random()*51);
+      cw.style.display='block';
+      ca.textContent='WIN BONUS: +'+earnAmt+' B-COINS';
+      cw.dataset.earn=earnAmt;
+      setTimeout(()=>{const cb=$('b-claim');if(cb){cb.setAttribute('tabindex','0');cb.focus();}},400);
+      speak('You won! Claim your '+earnAmt+' B-Coin reward!',true);
+    } else {
+      cw.style.display='none';
+    }
+  }
   $('s-result').classList.remove('hidden');
 };
 
@@ -2483,12 +2808,13 @@ const openSettings=()=>{
 const closeSettings=()=>{
   $('settings-panel').classList.add('hidden');
   $('settings-panel').setAttribute('aria-hidden','true');
-  speak('Settings closed. Back to app.',true);
-  // Restore focus to profile button
+  // Silently restore focus — no "closed" announcement
   setTimeout(()=>{
-    if(lastFocusBeforeDialog&&lastFocusBeforeDialog.focus){
-      lastFocusBeforeDialog.focus();
-    } else {
+    let restored=false;
+    if(lastFocusBeforeDialog&&lastFocusBeforeDialog.focus&&document.body.contains(lastFocusBeforeDialog)){
+      lastFocusBeforeDialog.focus();restored=true;
+    }
+    if(!restored){
       const pb=document.getElementById('profileBtn');
       if(pb)pb.focus();
     }
@@ -2531,6 +2857,16 @@ wireToggle('s-tigervoice','tigervoice','Tiger warnings on','Tiger warnings off')
 wireToggle('s-dist',    'dist',    'Distance updates on', 'Distance updates off');
 wireToggle('s-vib',     'vib',     'Vibration on',        'Vibration off');
 wireToggle('s-flash',   'flash',   'Danger flash on',     'Danger flash off');
+// Wire UI Sound master toggle
+(function(){
+  const uiEl=document.getElementById('s-uisound');
+  if(!uiEl)return;
+  uiEl.addEventListener('change',()=>{
+    window.uiSoundEnabled=uiEl.checked;
+    ann(uiEl.checked?'UI sounds on.':'UI sounds off.');
+  });
+  window.uiSoundEnabled=true; // default on
+})();
 const splash=$('splash');
 let splashDone=false;
 
@@ -2575,7 +2911,7 @@ window.__scStop=()=>{
 };
 </script>
 </div>
-<!-- Flappy Bird removed -->
+
 
 <script>
 // ══════════════════════════════════════
@@ -2784,6 +3120,7 @@ function openProfile(){
   trapFocus(panel);
   const name=(userProfile.firstName||'Your')+' '+userProfile.lastName;
   ann('Profile opened. '+name.trim()+'. Tap Edit Profile to change details. Tap outside or press close to exit.');
+  wireProfileClicks();
 }
 function closeProfile(){
   profOpen=false;
@@ -2793,6 +3130,11 @@ function closeProfile(){
   document.getElementById('profileBtn').setAttribute('aria-expanded','false');
   panel.setAttribute('aria-hidden','true');
   releaseFocus(panel);
+  // Silently return focus — no announcement, no "closed" message
+  setTimeout(()=>{
+    const pb=document.getElementById('profileBtn');
+    if(pb&&pb.focus)pb.focus();
+  },80);
 }
 
 // ══════════════════════════════════════
@@ -2800,8 +3142,8 @@ function closeProfile(){
 // ══════════════════════════════════════
 function showHelp(type){
   const msgs={
-    controls:'Shadow Chase: Tap FORWARD to move. LEFT, RIGHT, BACK to turn. SPECIAL button hides snake for 4 seconds. Eat frogs for energy. Reach Safe Hole to win. Flappy Bird: Tap anywhere to fly up. Avoid green pipes.',
-    audio:'Shadow Chase: Tiger growl gets louder as it approaches. Directional dings tell you which way you turned. Heartbeat quickens near tiger. Flappy Bird: High pitch means flying up. Low pitch means falling.',
+    controls:'Shadow Chase: Tap FORWARD to move. LEFT, RIGHT, BACK to turn. SPECIAL button hides snake for 4 seconds. Eat frogs for energy. Reach Safe Hole to win.',
+    audio:'Shadow Chase: Tiger growl gets louder as it approaches. Directional dings tell you which way you turned. Heartbeat quickens near tiger.',
     talkback:'Recommended: Turn off TalkBack explore-by-touch while playing games. Use single-finger swipes. Double-tap to activate focused elements. Game buttons are large and spaced away from Android navigation buttons.'
   };
   ann(msgs[type]||'');
@@ -2834,7 +3176,7 @@ function launch(id){
   setTimeout(()=>{
     document.getElementById('gClose').focus();
   },100);
-  const msgs={sc:'Shadow Chase opened. Swipe left for Snake, right for Tiger. Tap Close button at top right to exit.',fb:'Flappy Bird opened. Tap Start Game to begin. Tap Close button at top right to exit.'};
+  const msgs={sc:'Shadow Chase opened. Swipe left for Snake, right for Tiger. Tap Close button at top right to exit.'};
   ann(msgs[id]||'Game opened. Tap Close at top to exit.');
 }
 function closeGame(){
@@ -2842,10 +3184,16 @@ function closeGame(){
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden','true');
   if(curGame==='sc'&&typeof window.__scStop==='function')window.__scStop();
-  if(curGame==='fb'&&typeof window.__fbReset==='function')window.__fbReset();
   curGame=null;
   goPage('games');
-  ann('Game closed. Back to Games page.');
+  // Move focus to Games page heading — no stale "closed" announcement
+  setTimeout(()=>{
+    const gp=document.getElementById('page-games');
+    if(gp){
+      const h=gp.querySelector('h1,h2,[data-focus-target]');
+      if(h){h.setAttribute('tabindex','-1');h.focus();}
+    }
+  },150);
 }
 
 // Open settings panel from profile panel
@@ -2875,137 +3223,220 @@ function openGameSettings(){
 // ══════════════════════════════════════
 //  INIT
 // ══════════════════════════════════════
+
+// ══════════════════════════════════════
+//  USER HUB — COINS, SPIN, SHOP
+// ══════════════════════════════════════
+const HUB_COINS_KEY='btCoins';
+const HUB_SPIN_KEY='btLastSpin';
+const HUB_ITEMS_KEY='btItems';
+let hubCoins=0;
+let hubItems={radar:false,shield:false};
+
+// ── UI click sound (light tap for buttons) ──
+function playUIClick(){
+  const ac=getHubAC();if(!ac)return;
+  const o=ac.createOscillator(),g=ac.createGain();
+  o.type='sine';o.frequency.value=1200;
+  g.gain.setValueAtTime(0.08,ac.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+0.06);
+  o.connect(g);g.connect(ac.destination);
+  o.start();o.stop(ac.currentTime+0.07);
+}
+// Wire UI click to all pp-items on profile open
+function wireProfileClicks(){
+  document.querySelectorAll('.pp-item,.hub-buy-btn,.hub-spin-btn').forEach(btn=>{
+    if(!btn.dataset.uiWired){
+      btn.addEventListener('pointerdown',()=>playUIClick(),{passive:true});
+      btn.dataset.uiWired='1';
+    }
+  });
+}
+
+function hubLoad(){
+  try{
+    hubCoins=parseInt(localStorage.getItem(HUB_COINS_KEY)||'0')||0;
+    const it=localStorage.getItem(HUB_ITEMS_KEY);
+    if(it)hubItems=JSON.parse(it);
+  }catch(e){}
+}
+function hubSave(){
+  try{
+    localStorage.setItem(HUB_COINS_KEY,hubCoins);
+    localStorage.setItem(HUB_ITEMS_KEY,JSON.stringify(hubItems));
+  }catch(e){}
+}
+function hubAddCoins(n){
+  hubCoins+=n;hubSave();hubRefreshUI();
+}
+
+function hubRefreshUI(){
+  const el=document.getElementById('hub-coins-display');
+  if(el)el.textContent=hubCoins;
+  const spinBtn=document.getElementById('hub-spin-btn');
+  const spinStatus=document.getElementById('hub-spin-status');
+  if(spinBtn&&spinStatus){
+    const cd=spinCooldown();
+    if(cd>0){
+      const h=Math.floor(cd/3600000),m=Math.floor((cd%3600000)/60000);
+      spinBtn.disabled=true;
+      spinBtn.textContent='Next Spin in '+h+'h '+m+'m';
+      spinBtn.setAttribute('aria-label','Daily spin not available. Next spin in '+h+' hours '+m+' minutes.');
+      spinStatus.textContent='Come back in '+h+'h '+m+'m for your next spin.';
+    } else {
+      spinBtn.disabled=false;
+      spinBtn.textContent='SPIN NOW';
+      spinBtn.setAttribute('aria-label','Daily Lucky Spin — tap to spin the reward wheel');
+      spinStatus.textContent='Spin once per 24 hours to earn B-Coins';
+    }
+  }
+  updateShopBtn('radar','btn-buy-radar','radar-tag');
+  updateShopBtn('shield','btn-buy-shield','shield-tag');
+}
+
+function updateShopBtn(item,btnId,tagId){
+  const btn=document.getElementById(btnId);
+  const tag=document.getElementById(tagId);
+  if(!btn)return;
+  if(hubItems[item]){
+    btn.textContent='OWNED';
+    btn.classList.add('owned');
+    btn.setAttribute('aria-label',item+' already owned');
+    btn.onclick=null;
+    if(tag)tag.textContent='Already in your inventory';
+  }
+}
+
+function spinCooldown(){
+  try{
+    const last=parseInt(localStorage.getItem(HUB_SPIN_KEY)||'0');
+    const diff=Date.now()-last;
+    return diff<86400000?86400000-diff:0;
+  }catch(e){return 0;}
+}
+
+let hubAC=null;
+function getHubAC(){
+  if(window.uiSoundEnabled===false)return null;
+  if(!hubAC)hubAC=new(window.AudioContext||window.webkitAudioContext)();
+  if(hubAC.state==='suspended')hubAC.resume();
+  return hubAC;
+}
+
+function playWheelSound(){
+  const ac=getHubAC();if(!ac)return;
+  const delays=[60,65,70,78,88,100,115,132,152,175,200,228,260,295,335,380,430,490];
+  let i=0;
+  function nextClick(){
+    if(i>=delays.length)return;
+    const o=ac.createOscillator(),g=ac.createGain();
+    o.type='triangle';o.frequency.value=850+Math.random()*250;
+    g.gain.setValueAtTime(0.2,ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+0.04);
+    o.connect(g);g.connect(ac.destination);
+    o.start();o.stop(ac.currentTime+0.05);
+    const d=delays[i]||490;i++;
+    setTimeout(nextClick,d);
+  }
+  nextClick();
+}
+
+function playSpinWin(){
+  const ac=getHubAC();if(!ac)return;
+  [523,659,784,1047].forEach((freq,i)=>{
+    const o=ac.createOscillator(),g=ac.createGain();
+    o.type='sine';o.frequency.value=freq;
+    const t=ac.currentTime+i*0.13;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(0.3,t+0.04);
+    g.gain.exponentialRampToValueAtTime(0.001,t+0.45);
+    o.connect(g);g.connect(ac.destination);
+    o.start(t);o.stop(t+0.5);
+  });
+}
+
+function playKaching(){
+  const ac=getHubAC();if(!ac)return;
+  [[880,0],[1100,0.08],[1320,0.16],[880,0.26],[1760,0.34]].forEach(([f,d])=>{
+    const o=ac.createOscillator(),g=ac.createGain();
+    o.type='sine';o.frequency.value=f;
+    const t=ac.currentTime+d;
+    g.gain.setValueAtTime(0.25,t);
+    g.gain.exponentialRampToValueAtTime(0.001,t+0.18);
+    o.connect(g);g.connect(ac.destination);
+    o.start(t);o.stop(t+0.2);
+  });
+}
+
+function doSpin(){
+  if(spinCooldown()>0){ann('Spin not ready yet. Come back later.');return;}
+  const btn=document.getElementById('hub-spin-btn');
+  const statusEl=document.getElementById('hub-spin-status');
+  if(btn){
+    btn.disabled=true;
+    btn.textContent='SPINNING...';
+    btn.classList.add('hub-spin-spinning');
+    btn.setAttribute('aria-label','Wheel is spinning, please wait');
+  }
+  if(statusEl)statusEl.textContent='Wheel is spinning...';
+  ann('Wheel is spinning...');
+  playWheelSound();
+  setTimeout(()=>{
+    const reward=20+Math.floor(Math.random()*131);
+    hubAddCoins(reward);
+    localStorage.setItem(HUB_SPIN_KEY,Date.now());
+    playSpinWin();
+    if(navigator.vibrate)navigator.vibrate([100,50,100,50,200]);
+    if(btn){btn.classList.remove('hub-spin-spinning');btn.textContent='WON +'+reward+' B-COINS!';}
+    if(statusEl)statusEl.textContent='You won '+reward+' B-Coins! Balance: '+hubCoins;
+    ann('You won '+reward+' B-Coins! Your new balance is '+hubCoins+' B-Coins.');
+    setTimeout(()=>hubRefreshUI(),3500);
+  },2500);
+}
+
+function buyItem(item,cost){
+  if(hubItems[item]){ann(item+' is already owned.');return;}
+  if(hubCoins<cost){
+    const msg=document.getElementById('hub-shop-msg');
+    if(msg)msg.textContent='Insufficient B-Coins. Need '+cost+', you have '+hubCoins+'.';
+    ann('Insufficient B-Coins. You need '+cost+' but have only '+hubCoins+'.');
+    if(navigator.vibrate)navigator.vibrate([200,100,200]);
+    return;
+  }
+  hubCoins-=cost;hubItems[item]=true;hubSave();hubRefreshUI();
+  playKaching();
+  if(navigator.vibrate)navigator.vibrate([80,50,80]);
+  const names={radar:'Radar',shield:'Shield'};
+  const msg=document.getElementById('hub-shop-msg');
+  if(msg)msg.textContent=names[item]+' purchased! '+hubCoins+' B-Coins remaining.';
+  ann(names[item]+' purchased for '+cost+' B-Coins! Balance: '+hubCoins+'.');
+}
+
+function claimReward(){
+  const cw=document.getElementById('claim-wrap');
+  if(!cw)return;
+  const earnAmt=parseInt(cw.dataset.earn||'0');
+  if(!earnAmt)return;
+  hubAddCoins(earnAmt);
+  playKaching();
+  if(navigator.vibrate)navigator.vibrate([100,50,150]);
+  ann('Reward claimed! '+earnAmt+' B-Coins added. Balance: '+hubCoins+'.');
+  cw.style.display='none';
+  setTimeout(()=>{const rep=document.getElementById('b-replay');if(rep)rep.focus();},200);
+}
+
+
 window.addEventListener('load',()=>{
   loadProfile();
+  hubLoad();
   applyProfileUI();
   goPage('home');
+  hubRefreshUI();
   if(!isProfileSet()){
     showOnboarding();
   } else {
     ann('Welcome back '+userProfile.firstName+'! Blind Tech Abbas Ali. Use navigation bar to explore.');
   }
-});
-
-// ══════════════════════════════════════
-//  FLAPPY BIRD ENGINE
-// ══════════════════════════════════════
-
-(function(){
-  'use strict';
-  const ss=document.getElementById('fb-startScreen');
-  const sbtn=document.getElementById('fb-startButton');
-  const gc=document.getElementById('fb-gameContainer');
-  const cv=document.getElementById('fb-canvas');
-  const ctx=cv.getContext('2d');
-  const lr=document.getElementById('fb-liveRegion');
-  const vol=document.getElementById('fb-volumeControl');
-  const stxt=document.getElementById('fb-statusText');
-  const sdisp=document.getElementById('fb-scoreDisplay');
-  let started=false,running=false,over=false,audioInit=false;
-  let AC=null,navOsc=null,navGain=null,audioVol=0.7,score=0;
-  const bird={x:0,y:0,w:30,h:30,vel:0,grav:0.25,flap:-8,maxV:6};
-  const pc={w:80,gap:300,spacing:400,vel:-2};
-  let pipes=[],nextPX=0,passed=new Set();
-  function resize(){cv.width=Math.min(gc.clientWidth||320,480);cv.height=gc.clientHeight||600;}
-  function ann(t){lr.textContent='';setTimeout(()=>lr.textContent=t,10);}
-  function initAudio(){
-    if(audioInit)return;
-    try{
-      AC=new(window.AudioContext||window.webkitAudioContext)();
-      if(AC.state==='suspended')AC.resume();
-      navOsc=AC.createOscillator();navGain=AC.createGain();
-      navOsc.type='sine';navOsc.connect(navGain);navGain.connect(AC.destination);
-      navGain.gain.value=0;navOsc.start(0);audioInit=true;
-    }catch(e){}
-  }
-  function tone(f,d,atk=0.05,rel=0.1){
-    if(!audioInit||!AC)return;
-    try{const t=AC.currentTime,o=AC.createOscillator(),g=AC.createGain();
-      o.frequency.value=f;o.type='sine';o.connect(g);g.connect(AC.destination);
-      g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(audioVol*0.5,t+atk);
-      g.gain.exponentialRampToValueAtTime(0.01,t+d-rel);o.start(t);o.stop(t+d);}catch(e){}
-  }
-  function pitch(){
-    if(!audioInit||!running||over){if(navGain&&AC)navGain.gain.setTargetAtTime(0,AC.currentTime,0.05);return;}
-    const n=Math.max(0,Math.min(1,(bird.y-50)/(cv.height-130)));
-    navOsc.frequency.setTargetAtTime(800-n*750,AC.currentTime,0.05);
-    navGain.gain.setTargetAtTime(audioVol*0.35,AC.currentTime,0.05);
-  }
-  let lastG=0;
-  function guide(){
-    if(!running||over)return;
-    const now=Date.now();if(now-lastG<800)return;lastG=now;
-    const n=Math.max(0,Math.min(1,(bird.y-50)/(cv.height-130)));
-    if(n<0.33)ann('Up. Tap to go down.');
-    else if(n>0.67)ann('Down. Tap to go up.');
-    else ann('Center. Good position.');
-  }
-  function flap(){if(!running||over)return;bird.vel=bird.flap;tone(500,0.15,0.02,0.05);tone(650,0.12,0.02,0.03);if(navigator.vibrate)navigator.vibrate([50]);}
-  function updSt(){sdisp.textContent=score;stxt.textContent=over?'❌ GAME OVER':running?'PLAYING':'PAUSED';}
-  function endGame(){
-    running=false;over=true;
-    tone(200,0.3,0.05,0.15);tone(150,0.35,0.05,0.2);
-    if(navigator.vibrate)navigator.vibrate([200,100,200,100,200]);
-    ann('Game Over! Score: '+score+'. Tap to play again.');updSt();
-    if(navGain&&AC)navGain.gain.setTargetAtTime(0,AC.currentTime,0.2);
-    const prev=parseInt(localStorage.getItem('fb_best')||'0');
-    if(score>prev)localStorage.setItem('fb_best',score);
-  }
-  function reset(){bird.y=cv.height/2;bird.vel=0;pipes=[];passed.clear();nextPX=cv.width+200;score=0;running=true;over=false;ann('Restarted!');updSt();}
-  function update(){
-    if(!running||!started)return;
-    bird.vel=Math.min(bird.vel+bird.grav,bird.maxV);bird.y+=bird.vel;pitch();guide();
-    for(let i=pipes.length-1;i>=0;i--){
-      pipes[i].x+=pc.vel;
-      if(pipes[i].x+pc.w<bird.x&&!passed.has(i)){passed.add(i);score++;tone(800,0.1,0.02,0.02);tone(1000,0.15,0.02,0.05);if(navigator.vibrate)navigator.vibrate([80,50,80]);ann('Score: '+score);updSt();}
-      if(pipes[i].x+pc.w<0)pipes.splice(i,1);
-    }
-    if(nextPX<cv.width){pipes.push({x:cv.width,y:Math.random()*(cv.height-pc.gap-100)+50});nextPX=cv.width+pc.spacing;}
-    if(bird.y-bird.h/2<=0||bird.y+bird.h/2>=cv.height){endGame();return;}
-    for(let p of pipes){if(bird.x+bird.w/2>p.x&&bird.x-bird.w/2<p.x+pc.w){if(bird.y-bird.h/2<p.y||bird.y+bird.h/2>p.y+pc.gap){endGame();return;}}}
-  }
-  function draw(){
-    ctx.fillStyle='#1a1a1a';ctx.fillRect(0,0,cv.width,cv.height);
-    ctx.fillStyle='#00ff00';
-    for(let p of pipes){ctx.fillRect(p.x,0,pc.w,p.y);ctx.fillRect(p.x,p.y+pc.gap,pc.w,cv.height);}
-    ctx.fillStyle='#ffff00';ctx.beginPath();ctx.arc(bird.x,bird.y,bird.w/2,0,Math.PI*2);ctx.fill();
-    ctx.strokeStyle='#ff6600';ctx.lineWidth=3;ctx.stroke();
-    ctx.fillStyle='#ffff00';ctx.font='bold 28px Arial';ctx.textAlign='left';ctx.fillText('Score: '+score,16,44);
-    if(over){ctx.fillStyle='#ff0000';ctx.font='bold 22px Arial';ctx.textAlign='center';ctx.fillText('TAP TO RESTART',cv.width/2,cv.height/2);}
-  }
-  let lastT=Date.now();
-  function loop(){const now=Date.now(),el=now-lastT;if(el>=16){update();draw();lastT=now-(el%16);}if(started)requestAnimationFrame(loop);}
-  function handleTap(e){if(e&&e.target===vol)return;if(!started)return;if(over)reset();else if(running)flap();}
-  gc.addEventListener('touchstart',(e)=>{e.preventDefault();handleTap(e);},{passive:false});
-  gc.addEventListener('click',(e)=>handleTap(e));
-  vol.addEventListener('input',(e)=>{audioVol=parseInt(e.target.value)/100;});
-  let _launching=false;
-  sbtn.addEventListener('click',(e)=>{
-    e.preventDefault();e.stopPropagation();
-    if(_launching||started)return;
-    _launching=true;
-    initAudio();if(AC&&AC.state==='suspended')AC.resume();
-    if(navigator.vibrate)navigator.vibrate([100,50,100]);
-    ann('Starting Flappy Bird...');
-    setTimeout(()=>{
-      ss.style.display='none';gc.style.display='flex';
-      resize();bird.x=cv.width*0.2;bird.y=cv.height/2;nextPX=cv.width+200;
-      started=true;running=true;over=false;_launching=false;
-      ann('Flappy Bird started! Tap anywhere to fly up. Avoid the pipes.');updSt();loop();
-    },400);
-  });
-  sbtn.addEventListener('keydown',(e)=>{
-    if(e.key==='Enter'||e.key===' ')sbtn.click();
-  });
-  window.__fbReset=function(){
-    started=false;running=false;over=false;score=0;pipes=[];passed.clear();
-    _launching=false;
-    ss.style.display='flex';gc.style.display='none';
-    if(navGain&&AC)navGain.gain.setTargetAtTime(0,AC.currentTime,0.1);
-    ann('Flappy Bird reset. Tap Start Game to play again.');
-  };
-  resize();
-  window.addEventListener('resize',resize);
 });
 </script>
 
@@ -3105,14 +3536,11 @@ window.addEventListener('load',()=>{
   if(pg&&pg.classList.contains('active')){
     setTimeout(()=>{resize();init();draw();},100);
   }
-  
   window.addEventListener('resize',()=>{
-    if(document.getElementById('page-home').classList.contains('active')){
-      resize();init();
-    }
+    const home=document.getElementById('page-home');
+    if(home&&home.classList.contains('active')){resize();init();}
   });
 })();
 </script>
-
 </body>
 </html>
