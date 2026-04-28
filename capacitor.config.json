@@ -1,0 +1,10 @@
+{
+  "appId": "com.blindtech.app",
+  "appName": "Blind Tech Abbas Ali",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "plugins": {},
+  "server": {
+    "androidScheme": "https"
+  }
+}
