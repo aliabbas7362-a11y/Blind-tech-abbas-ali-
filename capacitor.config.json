@@ -1,7 +1,7 @@
 {
   "appId": "com.blindtech.app",
   "appName": "Blind Tech Abbas Ali",
-  "webDir": ".",
+  "webDir": "dist",
   "bundledWebRuntime": false,
   "plugins": {},
   "server": {
