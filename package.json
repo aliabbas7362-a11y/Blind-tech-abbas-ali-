@@ -1,1 +1,20 @@
-{\n  "name": "blind-tech-abbas-ali-",\n  "version": "1.0.0",\n  "description": "A project for Android development with Capacitor.",\n  "main": "index.js",\n  "scripts": {\n    "build": "npm run build",\n    "start": "npm start"\n  },\n  "dependencies": {\n    "@capacitor/android": "^3.3.0",\n    "@capacitor/core": "^3.3.0"\n  },\n  "devDependencies": {\n    "@capacitor/cli": "^3.3.0"\n  },\n  "author": "aliabbas7362-a11y",\n  "license": "MIT",\n  "bugs": {\n    "url": "https://github.com/aliabbas7362-a11y/Blind-tech-abbas-ali-/issues"\n  },\n  "homepage": "https://github.com/aliabbas7362-a11y/Blind-tech-abbas-ali-"\n}
+{
+  "name": "blind-tech-abbas-ali-",
+  "version": "1.0.0",
+  "description": "A project for Android development with Capacitor.",
+  "main": "index.js",
+  "scripts": {
+    "build": "build script here",
+    "start": "start script here"
+  },
+  "dependencies": {
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/android": "^5.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
